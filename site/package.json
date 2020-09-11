@@ -1,0 +1,29 @@
+{
+  "name": "meadowlark",
+  "version": "1.0.0",
+  "description": "A travell website example to learn node and express",
+  "main": "meadowlark.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/kuldeepkrsharma029/meadowlark.git"
+  },
+  "keywords": [
+    "node",
+    "express",
+    "DIY",
+    "learn"
+  ],
+  "author": "kuldeep",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kuldeepkrsharma029/meadowlark/issues"
+  },
+  "homepage": "https://github.com/kuldeepkrsharma029/meadowlark#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "express3-handlebars": "^0.5.2"
+  }
+}
