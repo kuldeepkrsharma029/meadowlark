@@ -1,4 +1,5 @@
 var express = require('express');
+var fortune = require('./lib/fortune.js');
 
 var app = express();
 
@@ -17,8 +18,7 @@ app.get('/', function(req, res){
 });
 
 app.get('/about', function(req, res){
-    var randomFortune = fortunes[Math.floor(Math.random()*fortunes.length)];
-    res.render('about', {fortune: randomFortune});
+    res.render('about', {fortune: fortune.getFortune()});
 });
 
 app.use(function(req, res, next){
@@ -36,12 +36,3 @@ app.use(function(err, req, res, next){
 app.listen(app.get('port'), function(){
     console.log('Express sever is started on http://localhost:'+ app.get('port') + '; Press Ctrl+c to stop the same!');
 });
-
-
-var fortunes = [
-    "Conquer your fears before they conquer you.",
-    "Rivers need springs.",
-    "Do not fear what you don't know.",
-    "You'll have a pleasant surprise.",
-    "Whenever possible, keep it simple."
-];
