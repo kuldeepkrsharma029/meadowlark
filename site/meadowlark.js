@@ -13,12 +13,22 @@ app.set('port', process.env.PORT || 3000);
 //Adding a middleware to serve the static content to client without question
 app.use(express.static(__dirname+'/public'));
 
+//Needed a middleware to detect, we are running test
+app.use(function(req, res, next){
+    res.locals.showTests = app.get('env') !== 'production' && req.query.test === '1';
+    next();
+});
+
+
 app.get('/', function(req, res){
     res.render('home');
 });
 
 app.get('/about', function(req, res){
-    res.render('about', {fortune: fortune.getFortune()});
+    res.render('about', {
+        fortune: fortune.getFortune(),
+        pageTestScript: '/qa/tests-about.js'
+    });
 });
 
 app.use(function(req, res, next){
